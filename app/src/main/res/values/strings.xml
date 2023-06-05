@@ -3,4 +3,6 @@
     <string name="hintEmail">Email</string>
     <string name="errorEmail">Masukkan email dengan benar</string>
     <string name="mulai">Mulai</string>
+    <string name="hey_there">Hey there,</string>
+    <string name="welcome">Welcome Back</string>
 </resources>
