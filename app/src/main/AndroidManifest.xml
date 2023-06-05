@@ -18,6 +18,9 @@
         android:theme="@style/Theme.FitAssistAI"
         tools:targetApi="31">
         <activity
+            android:name=".FillInformationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChooseGenderActivity"
             android:exported="false" />
         <activity

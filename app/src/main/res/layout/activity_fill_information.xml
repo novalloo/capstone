@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail.FillInformationActivity">
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/fitassistai"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <com.bella.fitassistai.custom.EditText
+        android:id="@+id/edt_age"
+        android:layout_width="300dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_age"
+        android:drawablePadding="8dp"
+        android:hint="Your Age"
+        android:lines="1"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_info" />
+
+    <com.bella.fitassistai.custom.EditText
+        android:id="@+id/edt_height"
+        android:layout_width="300dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_height"
+        android:drawablePadding="8dp"
+        android:hint="Your Height"
+        android:lines="1"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_age" />
+
+    <com.bella.fitassistai.custom.EditText
+        android:id="@+id/edt_weight"
+        android:layout_width="300dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_weight"
+        android:drawablePadding="8dp"
+        android:hint="Your Weight"
+        android:lines="1"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_height" />
+
+    <com.bella.fitassistai.custom.ButtonNext
+        android:id="@+id/btn_info"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:enabled="false"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_weight" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
