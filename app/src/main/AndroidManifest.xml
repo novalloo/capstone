@@ -18,29 +18,32 @@
         android:theme="@style/Theme.FitAssistAI"
         tools:targetApi="31">
         <activity
+            android:name=".ChooseGenderActivity"
+            android:exported="false" />
+        <activity
             android:name=".detail.camera.CameraActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".detail.login.LoginActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".detail.register.RegisterActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".profile.ProfileActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".workout.dumbbell.DumbbellActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".workout.pushup.PushupActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".workout.squat.SquatActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".WelcomeActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".main.MainActivity"
             android:exported="true">
