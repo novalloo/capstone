@@ -17,4 +17,6 @@
         <font color="#19A7CE" ><b>Login</b></font>
     </string>
     <string name="or">Or</string>
+    <string name="gender_men">gender men</string>
+    <string name="fitassistai">FitAssistAI</string>
 </resources>
