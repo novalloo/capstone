@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".workout.pushup.PushupActivity">
 
+    <ImageView
+        android:id="@+id/gif_pushup"
+        android:layout_width="340dp"
+        android:layout_height="196dp"
+        android:src="@drawable/pushuppp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="45dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
