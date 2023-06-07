@@ -16,10 +16,4 @@
         android:id="@+id/ic_profile"
         android:icon="@drawable/ic_profile_off"
         android:title="Profile"/>
-
-    <item
-        android:id="@+id/logout"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/baseline_logout_24"
-        android:title="@string/keluarApp"/>
 </menu>
