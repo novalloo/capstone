@@ -21,10 +21,10 @@
             android:name=".detail.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".FillInformationActivity"
+            android:name=".detail.FillInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".ChooseGenderActivity"
+            android:name=".detail.ChooseGenderActivity"
             android:exported="false" />
         <activity
             android:name=".detail.camera.CameraActivity"

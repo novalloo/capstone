@@ -71,4 +71,5 @@
     <string name="_200_reps">200 Reps</string>
     <string name="push_up">Push Up</string>
     <string name="times">05:00 Minute</string>
+    <string name="keluarApp">Logout</string>
 </resources>

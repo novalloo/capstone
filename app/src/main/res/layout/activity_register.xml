@@ -7,7 +7,7 @@
     tools:context=".detail.register.RegisterActivity">
 
     <TextView
-        android:id="@+id/tvregis"
+        android:id="@+id/tv_regis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.052" />
 
     <TextView
-        android:id="@+id/tvregis2"
+        android:id="@+id/tv_regis2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvregis"
+        app:layout_constraintTop_toBottomOf="@+id/tv_regis"
         app:layout_constraintVertical_bias="0.018" />
 
     <com.bella.fitassistai.custom.EditText
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvregis2"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_regis2"/>
 
     <com.bella.fitassistai.custom.EditText
         android:id="@+id/edt_name2"
@@ -149,6 +149,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_regis"
         app:layout_constraintVertical_bias="0.443" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_have_account"
