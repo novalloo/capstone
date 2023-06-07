@@ -72,4 +72,7 @@
     <string name="push_up">Push Up</string>
     <string name="times">05:00 Minute</string>
     <string name="keluarApp">Logout</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password_does_not_matched">Password does not matched</string>
+    <string name="fields_cannot_be_empty">Fields cannot be empty</string>
 </resources>

@@ -5,9 +5,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bella.fitassistai.R
 import com.bella.fitassistai.databinding.ActivityLoginBinding
+import com.bella.fitassistai.databinding.ActivityRegisterBinding
+import com.bella.fitassistai.detail.login.LoginActivity
 import com.bella.fitassistai.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -21,19 +24,47 @@ import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityRegisterBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.btnLogin
+        binding.btnRegis.setOnClickListener {
+            val firstName = binding.edtName1.text.toString()
+            val lastName = binding.edtName2.text.toString()
+            val email = binding.edtEmailRegis.text.toString()
+            val password = binding.edtPasswordRegis.text.toString()
+            val confirmPassword = binding.edtConfirmPassword.text.toString()
+
+            if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+                if (password == confirmPassword){
+                    firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+                        if (it.isSuccessful){
+                            val intent = Intent(this, LoginActivity::class.java)
+                            startActivity(intent)
+                        } else{
+                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }else{
+                    Toast.makeText(this, getString(R.string.password_does_not_matched), Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(this, getString(R.string.fields_cannot_be_empty), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.tvHaveAccount.setOnClickListener {
+            val loginIntent = Intent(this, LoginActivity::class.java)
+            startActivity(loginIntent)
+        }
 
 
         // Configure Google Sign In
