@@ -37,13 +37,12 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnRegis.setOnClickListener {
-            val firstName = binding.edtName1.text.toString()
-            val lastName = binding.edtName2.text.toString()
+            val username = binding.edtUsername.text.toString()
             val email = binding.edtEmailRegis.text.toString()
             val password = binding.edtPasswordRegis.text.toString()
             val confirmPassword = binding.edtConfirmPassword.text.toString()
 
-            if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+            if (username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
                 if (password == confirmPassword){
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful){
