@@ -14,8 +14,7 @@ class DumbbellActivity : AppCompatActivity() {
 
     /*val cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
     val cameraId = cameraManager.cameraIdList[0] // Assuming the first camera is the desired one*/
-    private lateinit var cameraDevice: CameraDevice
-    private lateinit var mediaRecorder: MediaRecorder
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
