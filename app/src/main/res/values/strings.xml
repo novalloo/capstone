@@ -75,4 +75,9 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="password_does_not_matched">Password does not matched</string>
     <string name="fields_cannot_be_empty">Fields cannot be empty</string>
+    <string name="edit_profile">Edit Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
 </resources>
