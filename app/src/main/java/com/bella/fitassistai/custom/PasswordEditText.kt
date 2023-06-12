@@ -9,14 +9,12 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
-import android.util.Patterns
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.bella.fitassistai.R
 
 class PasswordEditText: AppCompatEditText {
-
-    private lateinit var emailIcon: Drawable
+    private lateinit var passwordIcon: Drawable
 
     constructor(context: Context) : super(context) {
         init()
@@ -35,16 +33,15 @@ class PasswordEditText: AppCompatEditText {
         transformationMethod = PasswordTransformationMethod.getInstance()
     }
 
-    private fun init() {
-        emailIcon = ContextCompat.getDrawable(context, R.drawable.ic_pass) as Drawable
-        inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+    private fun init(){
+        passwordIcon = ContextCompat.getDrawable(context, R.drawable.ic_pass ) as Drawable
+        inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
         compoundDrawablePadding = 16
-        setHint(R.string.hintEmail)
+        setHint(context.getString(R.string.hint_password))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            setAutofillHints(AUTOFILL_HINT_EMAIL_ADDRESS)
+            setAutofillHints(AUTOFILL_HINT_PASSWORD)
         }
-        setDrawable(emailIcon)
-
+        setDrawable(passwordIcon)
 
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -52,8 +49,7 @@ class PasswordEditText: AppCompatEditText {
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (!s.isNullOrEmpty() && !Patterns.EMAIL_ADDRESS.matcher(s).matches())
-                    error = context.getString(R.string.errorEmail)
+                if (!s.isNullOrEmpty() && s.length < 8) error = context.getString(R.string.error_password)
             }
 
             override fun afterTextChanged(s: Editable) {

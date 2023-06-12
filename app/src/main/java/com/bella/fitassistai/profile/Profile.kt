@@ -1,11 +1,9 @@
 package com.bella.fitassistai.profile
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.bella.fitassistai.R
-import com.bella.fitassistai.detail.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase

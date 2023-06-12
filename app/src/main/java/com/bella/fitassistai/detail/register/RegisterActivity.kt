@@ -8,7 +8,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bella.fitassistai.R
-import com.bella.fitassistai.databinding.ActivityLoginBinding
 import com.bella.fitassistai.databinding.ActivityRegisterBinding
 import com.bella.fitassistai.detail.login.LoginActivity
 import com.bella.fitassistai.main.MainActivity

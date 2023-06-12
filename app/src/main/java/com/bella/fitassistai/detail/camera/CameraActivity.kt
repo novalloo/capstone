@@ -11,7 +11,6 @@ import android.graphics.SurfaceTexture
 import android.hardware.camera2.CameraCaptureSession
 import android.hardware.camera2.CameraDevice
 import android.hardware.camera2.CameraManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -20,7 +19,6 @@ import android.util.Log
 import android.view.Surface
 import android.view.TextureView
 import android.widget.ImageView
-import androidx.annotation.RequiresApi
 import com.bella.fitassistai.R
 import com.bella.fitassistai.ml.ConvertedModel2
 import org.tensorflow.lite.DataType
@@ -28,7 +26,6 @@ import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import kotlin.math.log
 
 class CameraActivity : AppCompatActivity() {
 
@@ -79,11 +76,11 @@ class CameraActivity : AppCompatActivity() {
                 tensorImage.load(bitmap)
                 tensorImage = imageProcessor.process(tensorImage)
 
-// Creates inputs for reference.
+                // Creates inputs for reference.
                 val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 34), DataType.FLOAT32)
                 inputFeature0.loadBuffer(tensorImage.buffer)
 
-// Runs model inference and gets result.
+                // Runs model inference and gets result.
                 val outputs = model.process(inputFeature0)
                 val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
 

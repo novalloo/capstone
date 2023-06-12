@@ -1,12 +1,8 @@
 package com.bella.fitassistai.workout.pushup
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.app.ActivityCompat
-import com.bella.fitassistai.R
 import com.bella.fitassistai.databinding.ActivityPushupBinding
 import com.bella.fitassistai.detail.camera.CameraActivity
 

@@ -38,7 +38,6 @@ class EmailEditText: AppCompatEditText {
         }
         setDrawable(emailIcon)
 
-
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 // Do Nothing
@@ -52,7 +51,6 @@ class EmailEditText: AppCompatEditText {
             override fun afterTextChanged(s: Editable) {
                 //Do nothing
             }
-
         })
     }
 

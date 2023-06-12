@@ -20,18 +20,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitAssistAI"
         tools:targetApi="31">
-        <activity
-            android:name=".EditProfile"
-            android:exported="false" />
-        <activity
-            android:name=".detail.HistoryActivity"
-            android:exported="false" />
+
         <activity
             android:name=".detail.FillInformationActivity"
             android:exported="false" />
-        <activity
-            android:name=".detail.ChooseGenderActivity"
-            android:exported="false" />
+
         <activity
             android:name=".detail.camera.CameraActivity"
             android:exported="false" />
@@ -40,9 +33,6 @@
             android:exported="false" />
         <activity
             android:name=".detail.register.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".profile.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".workout.dumbbell.DumbbellActivity"
