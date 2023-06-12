@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.SurfaceTexture
 import android.hardware.camera2.CameraCaptureSession
 import android.hardware.camera2.CameraDevice
@@ -13,14 +16,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
+import android.util.Log
 import android.view.Surface
 import android.view.TextureView
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import com.bella.fitassistai.R
+import com.bella.fitassistai.ml.ConvertedModel2
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.image.ImageProcessor
+import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.support.image.ops.ResizeOp
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import kotlin.math.log
 
 class CameraActivity : AppCompatActivity() {
 
+    val paint = Paint()
+    lateinit var imageProcessor: ImageProcessor
+    lateinit var model: ConvertedModel2
     lateinit var bitmap: Bitmap
     lateinit var imageView: ImageView
     lateinit var handler: Handler
@@ -33,6 +47,8 @@ class CameraActivity : AppCompatActivity() {
 
         get_permissions()
 
+        imageProcessor = ImageProcessor.Builder().add(ResizeOp(1, 32, ResizeOp.ResizeMethod.BILINEAR)).build()
+        model = ConvertedModel2.newInstance(this)
         imageView = findViewById(R.id.imageView)
         textureView = findViewById(R.id.textureView)
 
@@ -40,6 +56,8 @@ class CameraActivity : AppCompatActivity() {
         handlerThread = HandlerThread("videoThread")
         handlerThread.start()
         handler = Handler(handlerThread.looper)
+
+        paint.setColor(Color.BLUE)
 
         textureView.surfaceTextureListener = object:TextureView.SurfaceTextureListener{
 
@@ -57,10 +75,40 @@ class CameraActivity : AppCompatActivity() {
 
             override fun onSurfaceTextureUpdated(p0: SurfaceTexture) {
                 bitmap = textureView.bitmap!!
+                var tensorImage = TensorImage(DataType.FLOAT32)
+                tensorImage.load(bitmap)
+                tensorImage = imageProcessor.process(tensorImage)
 
+// Creates inputs for reference.
+                val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 34), DataType.FLOAT32)
+                inputFeature0.loadBuffer(tensorImage.buffer)
+
+// Runs model inference and gets result.
+                val outputs = model.process(inputFeature0)
+                val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
+
+                var mutable = bitmap.copy(Bitmap.Config.ARGB_8888, true)
+                var canvas = Canvas(mutable)
+                var h = bitmap.height
+                var w = bitmap.width
+                var x = 0
+
+                Log.d("output__", outputFeature0.size.toString())
+                while (x <= 49){
+                    if (outputFeature0.get(x+2) > 0.45){
+                        canvas.drawCircle(outputFeature0.get(x+1)*w, outputFeature0.get(x)*h, 10f,paint)
+                    }
+                    x+=3
+                }
+                imageView.setImageBitmap(mutable)
             }
 
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        model.close()
     }
 
     @SuppressLint("MissingPermission")
