@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bella.fitassistai.databinding.ActivityDumbbellBinding
 import com.bella.fitassistai.detail.camera.CameraActivity
-import com.bella.fitassistai.main.MainActivity
 
 class DumbbellActivity : AppCompatActivity() {
 

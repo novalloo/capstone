@@ -8,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.bella.fitassistai.R
-import com.bella.fitassistai.databinding.FragmentHomeBinding
-import com.bella.fitassistai.detail.camera.CameraActivity
 import com.bella.fitassistai.workout.dumbbell.DumbbellActivity
 import com.bella.fitassistai.workout.pushup.PushupActivity
 import com.bella.fitassistai.workout.squat.SquatActivity

@@ -1,18 +1,13 @@
 package com.bella.fitassistai.main
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.bella.fitassistai.R
-import com.bella.fitassistai.WelcomeActivity
 import com.bella.fitassistai.databinding.ActivityMainBinding
 import com.bella.fitassistai.detail.History
 import com.bella.fitassistai.detail.Home
-import com.bella.fitassistai.detail.login.LoginActivity
-import com.bella.fitassistai.detail.register.RegisterActivity
 import com.bella.fitassistai.profile.Profile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
