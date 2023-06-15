@@ -25,16 +25,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.06" />
 
-        <ImageView
-            android:id="@+id/img_logout"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="32dp"
-            android:src="@drawable/logout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_profile"
             android:layout_width="220dp"
@@ -56,7 +46,8 @@
             app:layout_constraintHorizontal_bias="0.792"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.467" />
+            app:layout_constraintVertical_bias="0.467"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/tv_username"
@@ -74,7 +65,7 @@
             app:layout_constraintVertical_bias="0.045"
             tools:text="TextView" />
 
-        <com.bella.fitassistai.custom.EditText
+        <TextView
             android:id="@+id/edt_gender"
             android:layout_width="300dp"
             android:layout_height="53dp"
@@ -82,15 +73,15 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/ic_gender"
             android:drawablePadding="8dp"
-            android:hint="Your Gender"
             android:lines="1"
             android:maxLines="1"
             android:paddingStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_username"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <com.bella.fitassistai.custom.EditText
+        <TextView
             android:id="@+id/edt_age_profile"
             android:layout_width="300dp"
             android:layout_height="53dp"
@@ -98,15 +89,15 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/ic_age"
             android:drawablePadding="8dp"
-            android:hint="Your Age"
             android:lines="1"
             android:maxLines="1"
             android:paddingStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_gender" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_gender"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <com.bella.fitassistai.custom.EditText
+        <TextView
             android:id="@+id/edt_height_profile"
             android:layout_width="300dp"
             android:layout_height="53dp"
@@ -114,17 +105,17 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/ic_height"
             android:drawableEnd="@drawable/cm"
-            android:paddingEnd="8dp"
             android:drawablePadding="8dp"
-            android:hint="Your Height"
             android:lines="1"
             android:maxLines="1"
             android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_age_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_age_profile"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <com.bella.fitassistai.custom.EditText
+        <TextView
             android:id="@+id/edt_weight_profile"
             android:layout_width="300dp"
             android:layout_height="53dp"
@@ -132,15 +123,15 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/ic_weight"
             android:drawableEnd="@drawable/kg"
-            android:paddingEnd="8dp"
             android:drawablePadding="8dp"
-            android:hint="Your Weight"
             android:lines="1"
             android:maxLines="1"
             android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_height_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_height_profile"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -10,18 +10,12 @@ import com.google.firebase.database.FirebaseDatabase
 
 class Profile : Fragment() {
 
-    lateinit var auth: FirebaseAuth
-    private lateinit var firebaseUser: FirebaseUser
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        auth = FirebaseAuth.getInstance()
-        firebaseUser = FirebaseAuth.getInstance().currentUser!!
-
         return view
     }
 

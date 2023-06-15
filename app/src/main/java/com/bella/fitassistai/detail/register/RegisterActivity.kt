@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var googleSignInClient: GoogleSignInClient
-    private lateinit var auth: FirebaseAuth
+    //private lateinit var auth: FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,12 +36,14 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnRegis.setOnClickListener {
-            val username = binding.edtUsername.text.toString()
+            /*val username = binding.edtUsername.text.toString()
             val email = binding.edtEmailRegis.text.toString()
             val password = binding.edtPasswordRegis.text.toString()
-            val confirmPassword = binding.edtConfirmPassword.text.toString()
+            val confirmPassword = binding.edtConfirmPassword.text.toString()*/
 
-            if (username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+            startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+
+            /*if (username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
                 if (password == confirmPassword){
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful){
@@ -56,14 +58,13 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }else{
                 Toast.makeText(this, getString(R.string.fields_cannot_be_empty), Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
 
         binding.tvHaveAccount.setOnClickListener {
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)
         }
-
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions
@@ -75,7 +76,7 @@ class RegisterActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         // Initialize Firebase Auth
-        auth = Firebase.auth
+        firebaseAuth = Firebase.auth
 
         binding.btnGoogle.setOnClickListener {
             signIn()
@@ -105,12 +106,12 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
+        firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
+                    val user = firebaseAuth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -129,11 +130,11 @@ class RegisterActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        val currentUser = firebaseAuth.currentUser
         updateUI(currentUser)
     }
 
     companion object {
-        private const val TAG = "LoginActivity"
+        private const val TAG = "RegisterActivity"
     }
 }

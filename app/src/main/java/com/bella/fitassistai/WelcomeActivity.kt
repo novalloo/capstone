@@ -11,6 +11,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import com.bella.fitassistai.databinding.ActivityWelcomeBinding
 import com.bella.fitassistai.detail.login.LoginActivity
+import com.bella.fitassistai.main.MainActivity
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -27,7 +28,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun setAction(){
         binding.btnStarted.setOnClickListener {
-            startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
+            startActivity(Intent(this@WelcomeActivity, MainActivity::class.java))
         }
     }
 

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "462993774114",
+    "project_id": "fitassistai-acb05",
+    "storage_bucket": "fitassistai-acb05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462993774114:android:42b8a63566ec33dd309c7b",
+        "android_client_info": {
+          "package_name": "com.bella.fitassistai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462993774114-j5ppivep0jq3vq8vhk88i221m28ellac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bella.fitassistai",
+            "certificate_hash": "d7f82f83dd5a908b3271c57bd7989d92b54c2286"
+          }
+        },
+        {
+          "client_id": "462993774114-8601tftu6pe7l38mbgi7am1d5sc7i4j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5aKvSJuLMvtUdo2HviQ5z14iFLSBGjD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462993774114-5keffmohdt2ov818egmf322lbgi3cn0m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

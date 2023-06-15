@@ -26,20 +26,22 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        firebaseAuth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
 
+        setAction()
         binding.btnLogin.setOnClickListener {
-            val email = binding.edtEmailLog.text.toString()
-            val password = binding.edtPasswordLog.text.toString()
+            /*val email = binding.edtEmailLog.text.toString()
+            val password = binding.edtPasswordLog.text.toString()*/
 
-            if (email.isNotEmpty() && password.isNotEmpty()){
-                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+            //startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+
+            /*if (email.isNotEmpty() && password.isNotEmpty()){
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful){
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
@@ -49,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }else{
                 Toast.makeText(this, getString(R.string.fields_cannot_be_empty), Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
         binding.tvHaventAccount.setOnClickListener {
             val registIntent = Intent(this, RegisterActivity::class.java)
@@ -70,6 +72,16 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnGoogle.setOnClickListener {
             signIn()
+        }
+    }
+
+    private fun setAction(){
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        }
+        binding.tvHaventAccount.setOnClickListener {
+            val registIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(registIntent)
         }
     }
 

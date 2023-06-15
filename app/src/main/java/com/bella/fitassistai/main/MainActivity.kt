@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.bella.fitassistai.R
+import com.bella.fitassistai.WelcomeActivity
 import com.bella.fitassistai.databinding.ActivityMainBinding
 import com.bella.fitassistai.detail.History
 import com.bella.fitassistai.detail.Home
@@ -41,13 +42,6 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
-        if (firebaseUser == null) {
-            // Not signed in, launch the Login activity
-            startActivity(Intent(this, LoginActivity::class.java))
-            startActivity(Intent(this, RegisterActivity::class.java))
-            finish()
-            return
-        }
     }
 
     private fun replaceFragment(fragment: Fragment){
@@ -61,21 +55,5 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.nav_menu, menu)
         return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.logout -> {
-                signOut()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    private fun signOut() {
-        auth.signOut()
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
     }
 }

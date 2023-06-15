@@ -16,9 +16,17 @@ class SquatActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        setAction()
+
+    }
+    private fun setAction(){
         binding.btnStarted.setOnClickListener {
-            val pushUpIntent = Intent(this, CameraActivity::class.java)
-            startActivity(pushUpIntent)
+            startActivity(Intent(this@SquatActivity, CameraActivity::class.java))
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

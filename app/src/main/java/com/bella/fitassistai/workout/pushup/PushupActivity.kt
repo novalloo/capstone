@@ -16,9 +16,17 @@ class PushupActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        setAction()
+    }
+
+    private fun setAction(){
         binding.btnStarted.setOnClickListener {
-            val pushUpIntent = Intent(this, CameraActivity::class.java)
-            startActivity(pushUpIntent)
+            startActivity(Intent(this@PushupActivity, CameraActivity::class.java))
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
