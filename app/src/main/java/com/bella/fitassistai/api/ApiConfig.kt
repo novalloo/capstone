@@ -18,7 +18,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://fitasist-backend21-dot-fit-assist-ai.et.r.appspot.com/user/")
+                .baseUrl("https://fitasist-backend21-dot-fit-assist-ai.et.r.appspot.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

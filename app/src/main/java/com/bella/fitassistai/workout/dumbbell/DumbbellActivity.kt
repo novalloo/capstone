@@ -15,6 +15,7 @@ class DumbbellActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Dumbbell"
 
         setAction()
     }

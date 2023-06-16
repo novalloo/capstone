@@ -15,6 +15,7 @@ class PushupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Push Up"
 
         setAction()
     }

@@ -16,9 +16,4 @@ class Profile : Fragment() {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
         return view
     }
-
-    private fun userInfo(){
-        val userRef = FirebaseDatabase.getInstance().getReference().child("")
-    }
-
 }

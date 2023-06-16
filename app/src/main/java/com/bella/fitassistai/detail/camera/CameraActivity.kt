@@ -130,6 +130,9 @@ public class CameraActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(R.layout.activity_camera)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Camera"
+
         surfaceView = findViewById(R.id.surfaceView)
 
         if (!isCameraPermissionGranted()) {
@@ -137,6 +140,10 @@ public class CameraActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     override fun onStart() {
         super.onStart()
         openCamera()

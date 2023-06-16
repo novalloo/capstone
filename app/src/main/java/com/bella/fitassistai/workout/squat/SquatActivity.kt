@@ -15,6 +15,7 @@ class SquatActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Squat"
 
         setAction()
 
