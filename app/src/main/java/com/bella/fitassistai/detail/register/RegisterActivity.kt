@@ -2,7 +2,6 @@ package com.bella.fitassistai.detail.register
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -15,9 +14,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.datastore.core.DataStore
-import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
@@ -26,19 +23,9 @@ import com.bella.fitassistai.api.ApiConfig
 import com.bella.fitassistai.api.response.RegisterResponse
 import com.bella.fitassistai.databinding.ActivityRegisterBinding
 import com.bella.fitassistai.detail.login.LoginActivity
-import com.bella.fitassistai.main.MainActivity
 import com.bella.fitassistai.utils.UserModel
 import com.bella.fitassistai.utils.UserPreference
 import com.bella.fitassistai.utils.ViewModelFactory
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -105,15 +92,10 @@ class RegisterActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val responsBody = response.body()
                     if (responsBody != null && !responsBody.error) {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            responsBody.message,
-                            Toast.LENGTH_SHORT
-                        ).show()
+
                     }
                 } else {
-                    Toast.makeText(this@RegisterActivity, response.message(), Toast.LENGTH_SHORT)
-                        .show()
+
                 }
             }
 

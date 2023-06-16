@@ -2,7 +2,6 @@ package com.bella.fitassistai.detail.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -15,12 +14,10 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.bella.fitassistai.R
 import com.bella.fitassistai.api.ApiConfig
 import com.bella.fitassistai.api.response.LoginResponse
 import com.bella.fitassistai.databinding.ActivityLoginBinding
@@ -30,15 +27,6 @@ import com.bella.fitassistai.utils.UserModel
 import com.bella.fitassistai.utils.UserPreference
 import com.bella.fitassistai.utils.UserToken
 import com.bella.fitassistai.utils.ViewModelFactory
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -97,18 +85,16 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
-                        val token = responseBody.loginResult.token
+                        val token = responseBody.accessToken
                         loginViewModel.saveUserData(UserToken(token))
-                        Toast.makeText(this@LoginActivity, responseBody.message, Toast.LENGTH_SHORT)
-                            .show()
+
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         intent.flags =
                             Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
                     }
                 } else {
-                    Toast.makeText(this@LoginActivity, response.message(), Toast.LENGTH_SHORT)
-                        .show()
+
                 }
             }
 
